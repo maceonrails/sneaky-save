@@ -86,7 +86,7 @@ module SneakySave
 
     changed_attributes = sneaky_update_fields
 
-    !self.class.where(pk => original_id).
+    !self.class.unscoped.where(pk => original_id).
       update_all(changed_attributes).zero?
   end
 
